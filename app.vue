@@ -54,11 +54,24 @@
     </form>
   </div>
   <br><br>
-  <div>
+  <!--<div>
     <form @submit.prevent="deleteProject">
       <div>
         <label for="projectId">Project ID:</label>
         <input type="text" id="projectId" v-model="deleteProjectId" required>
+      </div><br>
+      <button type="submit">Delete Project</button>
+    </form>
+  </div>-->
+  <div>
+    <form @submit.prevent="deleteProject">
+      <div>
+        <label for="projectId">Select Project Name:</label>
+        <select id="projectId" v-model="deleteProjectId" required>
+          <option v-for="project in projects" :key="project._id" :value="project._id">
+            {{ project.name }}
+          </option>
+        </select>
       </div><br>
       <button type="submit">Delete Project</button>
     </form>
